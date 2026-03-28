@@ -1,16 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body, html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Mencegah scroll bar muncul jika tidak perlu */
-}
-
 :root {
   --text: #6b6375;
   --text-h: #08060d;
