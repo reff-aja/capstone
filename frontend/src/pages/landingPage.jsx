@@ -9,10 +9,7 @@ const LandingPage = () => {
       <nav className="nav">
         <div className="logo">
           <div className="li">
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M7 1L11.5 4V10L7 13L2.5 10V4L7 1Z" stroke="#fff" strokeWidth="1.5" />
-              <circle cx="7" cy="7" r="2" fill="#fff" />
-            </svg>
+            
           </div>
           <span className="ln">Flexi<span>Study</span></span>
         </div>

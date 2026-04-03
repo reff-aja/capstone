@@ -1,8 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Auth.css';
 
 const Register = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleRegister = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://127.0.0.1:8000/register', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          nama_depan: namaDepan, 
+         nama_belakang: namaBelakang,
+         email: email, 
+         password: password 
+       }),
+      });
+     const data = await response.json();
+     alert(data.pesan);
+   } catch (error) {
+      alert("Gagal konek ke server!");
+   }
+  };
+
   return (
     <div className="auth-container">
     <div className="auth-container fade-in">
@@ -14,9 +37,9 @@ const Register = () => {
             <div className="step-dot active"></div>
             <div className="step-dot"></div>
           </div>
-          
+
           <div className="card-title">Buat Akun Baru</div>
-          <div className="card-sub">Langkah 2 dari 3 — Informasi Akun</div>
+          <div className="card-sub">Selesaikan daftar akun mu yuk!</div>
           
           <div className="row2">
             <div className="field">
@@ -31,7 +54,13 @@ const Register = () => {
           
           <div className="field">
             <label>Alamat Email</label>
-            <input type="email" className="finput" defaultValue="sari@email.com" />
+            <input 
+            type='email'
+            placeholder=' Masukan alamat email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            className='finput'
+            />
           </div>
           
           <div className="field">
@@ -66,7 +95,7 @@ const Register = () => {
             </select>
           </div>
           
-          <button className="btn-full">Lanjut ke Tes Awal →</button>
+          <Link to="/login"><button onClick={handleLanjut} className="btn-full" >Lanjut ke Tes Awal →</button></Link>
           
           <div className="switch">
             Sudah punya akun? <Link to="/login"><span>Masuk</span></Link>
